@@ -1,120 +1,93 @@
-<!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Souta</title>
-    <style>
-        body {
-            text-align: center;
-            background-color: #424fb3;
-            font-family: 'Roboto', sans-serif;
-            margin: 10px;
-            margin-top: 20px;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            margin: 0 auto;
-            border: 4px solid white;
-            border-radius: 50%;
-        }
-
-        h1 {
-            color: white;
-        }
-
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px; /* 追加 */
-        }
-
-        button {
-            background-color: white;
-            color: black;
-            width: 90%;
-            max-width: 400px;
-          border-radius: 10px;
-            height: 60px;
-            margin-top: 15px;
-            font-weight: bold;
-            font-size: 18px;
-        }
-
-        button:hover {
-            background-color: lightskyblue;
-        }
-
-        footer {
-            color: white;
-            margin-top: 40px;
-        }
-
-        /* 新しく追加したスタイル */
-        .white-frame {
-            width: 90%;
-            max-width: 370px;
-            margin: 0 auto;
-            background-color: white;
-            border: 4px solid white;
-            border-radius: 10px;
-            padding: 10px;
-            margin-top: 15px;
-            overflow: hidden;
-            /* 以下の2行を追加 */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .counter-container {
-            background-color: white;
-            padding: 10px;
-            border-radius: 0px;
-            margin-top: 10px;
-            /* 以下の1行を追加 */
-            width: 100%;
-        }
-
-        .access-counter-text {
-            color: #424fb3; /* 変更: アクセスカウンターテキストの色を変更 */
-            font-size: 18px;
-            margin-top: 0;
-
-          .iframe {
-            border: none;
-          }
-        }
-    </style>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
-</head>
-<body>
-  <br>
-  <br>
-    <img src="./images/photo.png" alt="" width="150" height="150">
-    <h1>Souta</h1>
-
-      <div class="button-container">
-        <button type="button" onclick="window.open('https://www.instagram.com/carabina_official?igsh=MXFwamUxZW82dWppaA==')">兄のバンド</button>
-        <button type="button" onclick="window.open('https://www.instagram.com/carabina_gt?igsh=MWVlZzhuM3FhaGRrag==')">兄のインスタ</button>
-        <button type="button" onclick="window.open('https://www.instagram.com/pg9yn')">本アカウント</button>
-        <button type="button" onclick="window.open('https://www.instagram.com/ps9kr')">サブアカウント</button>
-        <button type="button" onclick="window.open('https://www.instagram.com/ykg.craft?igsh=bnQ0ZG41MmFyYXoz&utm_source=qr')">運営アカウント</button>
-        <button type="button" onclick="window.open('https://music.apple.com/profile/souta_0516')">Apple Music</button>
-        <button type="button" onclick="window.open('https://open.spotify.com/user/anpqgigvvpkh80cywtbruw3ek?si=aEisC_qcRa6nouQvj7qNAQ')">Spotify</button>
-        <button type="button" onclick="window.open('https://city.o-miya.f5.si')">協力プロジェクト</button>
-        <button type="button" onclick="window.open('https://linkcloud.mu/5ce11aa2')">作曲？？</button>
-    </div>
-
-            </a>
-            <br />
-            </small>
-        </div>
-    </div>
-
-    <footer>&copy; 2024 Souta All Rights Reserved</footer>
-</body>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   モダンなプロフィールサイト
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+     background-image: url('https://media.discordapp.net/attachments/1269942629529813078/1313832924961050674/IMG_2064.jpg?ex=675191c3&is=67504043&hm=15299b9e5765d84c3a47ee558a211113aee5b5669d186eb34d0e055ebf9df860&');
+     background-size: cover;
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+   }
+   .bg-overlay {
+     background-color: rgba(17,17,17,0.7);
+   }
+  </style>
+ </head>
+ <body class="font-roboto bg-gray-100">
+  <div class="bg-overlay min-h-screen flex flex-col items-center justify-center p-5">
+   <div class="bg-gray-600 shadow-md rounded-lg p-5 mb-5 w-full max-w-md text-center">
+    <img alt="" class="rounded-full w-32 h-32 mx-auto mb-4" height="150" src="./images/photo.png" width="150"/>
+    <h2 class="text-2xl font-bold text-white">
+     山田 太郎
+    </h2>
+    <p class="text-gray-400">
+     ウェブ開発者
+    </p>
+    </p>
+   <p class="text-white">
+     宮城出身。動画編集とプログラミングが趣味らしいです
+    </p>
+   </div>
+   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-4xl">
+    <a class="bg-gray-600 text-gray-100 text-center py-4 rounded-lg shadow-md" href="https://www.instagram.com/pg9yn/profilecard/?igsh=MTQ5a3luZHgxZG5hMQ==">
+     <i class="text-2xl mb-2">
+     </i>
+     <p>
+      Instagram
+     </p>
+    </a>
+    <a class="bg-gray-600 text-gray-100 text-center py-4 rounded-lg shadow-md" href="https://www.instagram.com/ps9kr?igsh=MXUyeWl6ZmM0OGN0ZA==">
+     <i class="text-2xl mb-2">
+     </i>
+     <p>
+      Instagram
+     </p>
+    </a>
+    <a class="bg-gray-600 text-gray-100 text-center py-4 rounded-lg shadow-md" href="https://www.instagram.com/carabina_official/profilecard/?igsh=MXFwamUxZW82dWppaA==">
+     <i class="text-2xl mb-2">
+     </i>
+     <p>
+      兄のバンド
+     </p>
+    </a>
+    <a class="bg-gray-600 text-gray-100 text-center py-4 rounded-lg shadow-md" href="https://www.instagram.com/carabina_gt?igsh=MWVlZzhuM3FhaGRrag==">
+     <i class="text-2xl mb-2">
+     </i>
+     <p>
+      兄のインスタ
+     </p>
+    </a>
+    <a class="bg-gray-600 text-gray-100 text-center py-4 rounded-lg shadow-md" href="https://www.wh00.ooo/users/pg9yn?fbclid=PAZXh0bgNhZW0CMTEAAabW7g3AabM46rDNmfpOVpROmiKfKvq7cuTHVcribeSSDHqXdAwgA7nNyvU_aem_hqWwHvGo2feu8ApCw8luKA">
+     <i class="text-2xl mb-2">
+     </i>
+     <p>
+      Whoo
+     </p>
+    </a>
+    <a class="bg-gray-600 text-gray-100 text-center py-4 rounded-lg shadow-md" href="https://music.apple.com/profile/souta_0516">
+     <i class="text-2xl mb-2">
+     </i>
+     <p>
+      AppleMusic
+     </p>
+    </a>
+   </div>
+  </div>
+ </body>
+    <p style="text-align: center;"><span style="color: #ecf0f1;">&copy; 2024 Souta All Rights Reserved</span></p>
+  </p>
+  </a>
+   </div>
+  </div>
+  </body>
+  </body>
+  </html>
 </html>
