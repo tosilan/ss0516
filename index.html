@@ -1,78 +1,65 @@
-<!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pg9yn</title>
-    <meta name="description" content="素人のプログラマーがAIと協力して作ったプロフィールサイト｡ダークモード対応でデザインにこだわっています。"/>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>pg9yn</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    /* ダークモードのカスタムスタイル */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #1a202c; /* ダークモードの背景色 */
+      }
+      .bg-white {
+        background-color: #2d3748; /* ダークモードのカード背景色 */
+      }
+      .text-gray-600 {
+        color: #e2e8f0; /* ダークモードのテキスト色 */
+      }
+      .text-gray-500 {
+        color: #a0aec0; /* ダークモードのテキスト色 */
+      }
+    }
+  </style>
 </head>
-<body>
-    <div class="container">
-        <div class="profile">
-            <img src="./images/photo.png" alt="プロフィールアイコン" class="profile-img">
-            <h2>そうた</h2>
-            <p><span class="gray-text">動画クリエイター</span></p>
-            <p>📍Japan, Miyagi</p>
-            <p>動画編集と素人プログラマー</p>
-        </div>
-        <div class="links">
-            <a href="https://www.instagram.com/pg9yn/profilecard/?igsh=MTQ5a3luZHgxZG5hMQ%3D%3D">
-                <div class="icon-box">
-                    <i class="fab fa-instagram"></i>
-                </div>
-                <span>メインアカウント</span>
-            </a>
-            <a href="https://www.instagram.com/ps9kr?igsh=MXUyeWl6ZmM0OGN0ZA%3D%3D">
-                <div class="icon-box">
-                    <i class="fab fa-instagram"></i>
-                </div>
-                <span>サブアカウント</span>
-                </a>
-                <a href="https://www.instagram.com/carabina_official/profilecard/?igsh=MXFwamUxZW82dWppaA%3D%3D">
-                    <div class="icon-box">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                    <span>兄のバンド</span>
-            </a>
-            <a href="https://www.instagram.com/carabina_gt?igsh=MWVlZzhuM3FhaGRrag%3D%3D">
-                <div class="icon-box">
-                    <i class="fab fa-instagram"></i>
-                </div>
-                <span>兄のインスタ</span>
-            </a>
-            <a href="https://www.wh00.ooo/users/pg9yn?fbclid=PAZXh0bgNhZW0CMTEAAabW7g3AabM46rDNmfpOVpROmiKfKvq7cuTHVcribeSSDHqXdAwgA7nNyvU_aem_hqWwHvGo2feu8ApCw8luKA">
-                <div class="icon-box">
-                    <i class="fas fa-earth"></i>
-                </div>
-                <span>Whoo</span>
-                </a>
-                <a href="https://music.apple.com/profile/souta_0516">
-                    <div class="icon-box">
-                        <i class="fas fa-music"></i>
-                    </div>
-                    <span>Apple Music</span>
-           </a>
-        </div>
-        <div class="credit">
-            <i class="fab fa-instagram"></i> | <p>pg9yn</p>
-        </div>
+<body class="bg-gray-100 dark:bg-gray-900 font-roboto">
+  <div class="max-w-xs mx-auto mt-10 p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg">
+    <div class="flex justify-center">
+      <img alt="ユーザーのプロフィール画像" class="rounded-full" height="100" src="./images/photo.png" width="100"/>
     </div>
-
-    <script>
-        function setTheme() {
-            const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-            if (darkModeMediaQuery.matches) {
-                document.body.classList.add('dark-mode');
-            } else {
-                document.body.classList.remove('dark-mode');
-            }
-        }
-
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setTheme);
-        setTheme(); // 初回実行
-    </script>
+    <div class="text-center mt-4">
+      <h1 class="text-2xl font-bold text-gray-800 dark:text-gray-200">そうた</h1>
+      <p class="text-gray-600 dark:text-gray-300 mt-2">動画編集と素人プログラマー</p>
+    </div>
+    <div class="mt-6">
+      <a class="flex items-center w-full text-center py-2 px-3 bg-pink-500 text-white rounded-lg shadow hover:bg-pink-600 transition duration-300" href="https://instagram.com/pg9yn/">
+        <i class="fab fa-instagram fa-lg mr-2"></i>
+        メインアカウント
+      </a>
+      <a class="flex items-center w-full text-center py-2 px-3 bg-pink-500 text-white rounded-lg shadow hover:bg-pink-600 transition duration-300 mt-2" href="https://instagram.com/ps9kr/">
+        <i class="fab fa-instagram fa-lg mr-2"></i>
+        サブアカウント
+      </a>
+      <a class="flex items-center w-full text-center py-2 px-3 bg-pink-500 text-white rounded-lg shadow hover:bg-pink-600 transition duration-300 mt-2" href="https://www.instagram.com/carabina_official/">
+        <i class="fab fa-instagram fa-lg mr-2"></i>
+        兄のバンド
+      </a>
+      <a class="flex items-center w-full text-center py-2 px-3 bg-pink-500 text-white rounded-lg shadow hover:bg-pink-600 transition duration-300 mt-2" href="https://www.instagram.com/carabina_gt/">
+        <i class="fab fa-instagram fa-lg mr-2"></i>
+        兄のインスタ
+      </a>
+      <a class="flex items-center w-full text-center py-2 px-3 bg-gray-500 text-white rounded-lg shadow hover:bg-black-500 transition duration-300 mt-2" href="https://www.wh00.ooo/users/pg9yn?fbclid=PAZXh0bgNhZW0CMTEAAabW7g3AabM46rDNmfpOVpROmiKfKvq7cuTHVcribeSSDHqXdAwgA7nNyvU_aem_hqWwHvGo2feu8ApCw8luKA">
+        <i class="fas fa-globe mr-2"></i> Whoo
+      </a>
+      <a class="flex items-center w-full text-center py-2 px-3 bg-red-500 text-white rounded-lg shadow hover:bg-red-500 transition duration-300 mt-2" href="https://music.apple.com/profile/souta_0516">
+        <i class="fas fa-music mr-2"></i> Apple Music
+      </a>
+    </div>
+    <div class="text-center mt-6 text-gray-500 dark:text-gray-400">
+      <p>Powered by <a href="https://ykgm.f5.si" class="text-blue-500 hover:underline">愉快なゲーム</a></p>
+    </div>
+  </div>
 </body>
 </html>
