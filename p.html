@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starry Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --dark-color: #1a1a2e;
+            --light-color: #f8f9fa;
+            --accent-red: #e74c3c;
+            --accent-black: #2c3e50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #1a1a2e);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: var(--light-color);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: falling linear infinite;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes falling {
+            0% {
+                transform: translateY(-10px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 20px rgba(52, 152, 219, 0.5);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--light-color);
+        }
+
+        .bio {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            max-width: 80%;
+        }
+
+        .buttons {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-instagram {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+            color: white;
+        }
+
+        .btn-red {
+            background-color: var(--accent-red);
+            color: white;
+        }
+
+        .btn-black {
+            background-color: var(--accent-black);
+            color: white;
+        }
+
+        .btn i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .profile-pic {
+                width: 120px;
+                height: 120px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .bio {
+                font-size: 1rem;
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars-container" id="stars-container"></div>
+    
+    <div class="container">
+        <img src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-pic">
+        <h1>Your Name</h1>
+        <p class="bio">Web Developer & Designer. Creating beautiful and functional digital experiences.</p>
+        
+        <div class="buttons">
+            <a href="#" class="btn btn-instagram">
+                <i class="fab fa-instagram"></i> Instagram 1
+            </a>
+            <a href="#" class="btn btn-instagram">
+                <i class="fab fa-instagram"></i> Instagram 2
+            </a>
+            <a href="#" class="btn btn-instagram">
+                <i class="fab fa-instagram"></i> Instagram 3
+            </a>
+            <a href="#" class="btn btn-instagram">
+                <i class="fab fa-instagram"></i> Instagram 4
+            </a>
+            <a href="#" class="btn btn-red">
+                <i class="fas fa-heart"></i> Red Button
+            </a>
+            <a href="#" class="btn btn-black">
+                <i class="fas fa-user"></i> Black Button
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // 星空を生成する関数
+        function createStars() {
+            const container = document.getElementById('stars-container');
+            const starCount = 100; // 星の数
+            
+            // 既存の星をクリア
+            container.innerHTML = '';
+            
+            // 画面サイズを取得
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                // 星のサイズ (1pxから3pxの間でランダム)
+                const size = Math.random() * 2 + 1;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                
+                // 星の位置 (画面全体にランダムに分布)
+                star.style.left = `${Math.random() * width}px`;
+                star.style.top = `${Math.random() * height}px`;
+                
+                // 星の透明度 (0.2から1.0の間でランダム)
+                star.style.opacity = Math.random() * 0.8 + 0.2;
+                
+                // アニメーションの持続時間と遅延 (5秒から15秒の間でランダム)
+                const duration = Math.random() * 10 + 5;
+                const delay = Math.random() * 5;
+                star.style.animationDuration = `${duration}s`;
+                star.style.animationDelay = `${delay}s`;
+                
+                container.appendChild(star);
+            }
+        }
+        
+        // ページ読み込み時に星を生成
+        window.addEventListener('load', () => {
+            createStars();
+            
+            // 定期的に星を再生成して持続的な星空効果を作る
+            setInterval(() => {
+                createStars();
+            }, 10000); // 10秒ごとに更新
+        });
+        
+        // ウィンドウサイズ変更時にも星を再配置
+        window.addEventListener('resize', createStars);
+    </script>
+</body>
+</html>
