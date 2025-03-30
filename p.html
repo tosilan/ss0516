@@ -76,7 +76,7 @@
         .container {
             max-width: 600px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 2rem 2rem 12rem; /* 下部余白を12remに拡大 */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -113,8 +113,8 @@
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-            margin-top: 1.5rem;
+            gap: 1.2rem;
+            margin-top: 2rem;
         }
 
         .btn {
@@ -125,27 +125,42 @@
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 
+                0 4px 30px rgba(0, 0, 0, 0.1),
+                0 0 10px rgba(255, 255, 255, 0.1) inset;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 
+                0 8px 40px rgba(0, 0, 0, 0.2),
+                0 0 15px rgba(255, 255, 255, 0.2) inset;
         }
 
         .btn-instagram {
-            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+            background: linear-gradient(
+                45deg,
+                rgba(64, 93, 230, 0.7),
+                rgba(88, 81, 219, 0.7),
+                rgba(131, 58, 180, 0.7),
+                rgba(193, 53, 132, 0.7),
+                rgba(225, 48, 108, 0.7),
+                rgba(253, 29, 29, 0.7)
+            );
             color: white;
         }
 
         .btn-red {
-            background-color: var(--accent-red);
+            background-color: rgba(231, 76, 60, 0.7);
             color: white;
         }
 
         .btn-black {
-            background-color: var(--accent-black);
+            background-color: rgba(44, 62, 80, 0.7);
             color: white;
         }
 
@@ -156,7 +171,7 @@
 
         @media (max-width: 768px) {
             .container {
-                padding: 1.5rem;
+                padding: 1.5rem 1.5rem 10rem; /* モバイルの下部余白を10remに */
             }
             
             .profile-pic {
@@ -206,15 +221,12 @@
     </div>
 
     <script>
-        // 星空を生成する関数
         function createStars() {
             const container = document.getElementById('stars-container');
-            const starCount = 100; // 星の数
+            const starCount = 100;
             
-            // 既存の星をクリア
             container.innerHTML = '';
             
-            // 画面サイズを取得
             const width = window.innerWidth;
             const height = window.innerHeight;
             
@@ -222,19 +234,15 @@
                 const star = document.createElement('div');
                 star.classList.add('star');
                 
-                // 星のサイズ (1pxから3pxの間でランダム)
                 const size = Math.random() * 2 + 1;
                 star.style.width = `${size}px`;
                 star.style.height = `${size}px`;
                 
-                // 星の位置 (画面全体にランダムに分布)
                 star.style.left = `${Math.random() * width}px`;
                 star.style.top = `${Math.random() * height}px`;
                 
-                // 星の透明度 (0.2から1.0の間でランダム)
                 star.style.opacity = Math.random() * 0.8 + 0.2;
                 
-                // アニメーションの持続時間と遅延 (5秒から15秒の間でランダム)
                 const duration = Math.random() * 10 + 5;
                 const delay = Math.random() * 5;
                 star.style.animationDuration = `${duration}s`;
@@ -244,17 +252,13 @@
             }
         }
         
-        // ページ読み込み時に星を生成
         window.addEventListener('load', () => {
             createStars();
-            
-            // 定期的に星を再生成して持続的な星空効果を作る
             setInterval(() => {
                 createStars();
-            }, 10000); // 10秒ごとに更新
+            }, 10000);
         });
         
-        // ウィンドウサイズ変更時にも星を再配置
         window.addEventListener('resize', createStars);
     </script>
 </body>
